@@ -1,12 +1,10 @@
 resultats = {
-    "tu es Shelly"
-    "tu es Colt"
-    "tu es Bartaba"
-    "tu es Poco"
+"Shelly":"tu es Shelly",
+"Colt":"tu es Colt",
+"bartaba":"tu es Bartaba",
+"Poco":"tu es Poco"
+
 }
 
-description = {
-    
-}
 
 

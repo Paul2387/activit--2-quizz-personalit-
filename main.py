@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, redirect
 import os
 from questions import questions
+from resultats import resultats
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -24,13 +25,13 @@ def question():
         clefs = list(questions_copy.keys())
         session["clefs"] = clefs
     
-    return render_template("questions.html", question=enoncé, reponses=reponses)
+        return render_template("questions.html", question=enoncé, reponses=reponses)
     else:
-        score_trie = sorted(session["score"],key = session["score"].get, reverse = True)
-        mon_vainqueur = score_trie[0]
+        score_trie = sorted(session["scores"],key = session["scores"].get, reverse = True)
+        nom_vainqueur = score_trie[0]
         description = resultats[nom_vainqueur]
 
-        return render_template("resultats.html, vainqueur = nom_vainqueur, description = description")
+        return render_template("resultats.html", vainqueur = nom_vainqueur, description = description)
 
 @app.route("/reponse/<numero>")
 def reponse(numero):
